@@ -12,10 +12,12 @@ export class AppHeaderComponent {
   ) {}
 
 
-  authenticateUser() {
-    if (this.logged) {
-      this.logged = '';
-    } else {
+  logout() {
+    this.logged = '';
+  }
+
+  jumpToLogin() {
+    if (!this.logged) {
       this.router.navigate(['login']);
     }
   }

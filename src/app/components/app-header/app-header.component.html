@@ -6,9 +6,21 @@
   <button class="navbar-toggler d-md-down-none mr-auto" type="button" appSidebarToggler>
     <span class="navbar-toggler-icon"></span>
   </button>
-  <button class="btn btn-primary" (click)="authenticateUser()">
-    <i [ngClass] = "logged ? 'fa fa-user':''">{{logged?logged:'Log in'}}</i>
-  </button>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary"
+            [ngClass]="logged?'dropdown-toggle':''" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" (click)="jumpToLogin()">
+      <i [ngClass] = "logged ? 'fa fa-user':''" >{{logged?logged:'Log in'}}</i>
+    </button>
+
+    <div class="dropdown-menu" *ngIf="logged">
+      <a class="dropdown-item" href="#">Action</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" (click)="logout()">Log Out</a>
+    </div>
+  </div>
+
   <button class="navbar-toggler d-md-down-none" type="button" appAsideMenuToggler>
     <span class="navbar-toggler-icon"></span>
   </button>
