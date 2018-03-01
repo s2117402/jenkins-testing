@@ -28,6 +28,7 @@ import {
   AppSidebarMinimizerComponent,
   APP_SIDEBAR_NAV
 } from './components';
+import { LoginComponent } from './components/app-sidebar-form/login/login.component';
 
 const APP_COMPONENTS = [
   AppAsideComponent,
@@ -77,7 +78,8 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     AppComponent,
     ...APP_CONTAINERS,
     ...APP_COMPONENTS,
-    ...APP_DIRECTIVES
+    ...APP_DIRECTIVES,
+    LoginComponent,
   ],
   providers: [{
     provide: LocationStrategy,

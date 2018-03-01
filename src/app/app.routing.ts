@@ -6,12 +6,17 @@ import {
   FullLayoutComponent,
   SimpleLayoutComponent
 } from './containers';
+import { LoginComponent } from './components/app-sidebar-form/login/login.component';
 
 export const routes: Routes = [
+  // {
+  //   path: '',
+  //   redirectTo: 'dashboard',
+  //   pathMatch: 'full',
+  // },
   {
-    path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full',
+    path: 'login',
+    component: LoginComponent,
   },
   {
     path: '',
