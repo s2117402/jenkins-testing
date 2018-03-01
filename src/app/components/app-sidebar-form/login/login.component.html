@@ -22,7 +22,8 @@
             </div>
           </div>
           <div class="form-group form-actions">
-              <button type="submit" class="btn btn-sm btn-primary" id="loginBtn">
+              <button type="submit" class="btn btn-sm btn-primary" id="loginBtn"
+              (click)="authenticate()" routerLink='/'>
                 <i class="fa fa-user"></i> Login</button>
           </div>
         </form>

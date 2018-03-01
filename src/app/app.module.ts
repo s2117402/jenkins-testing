@@ -65,6 +65,9 @@ const APP_DIRECTIVES = [
 // Import routing module
 import { AppRoutingModule } from './app.routing';
 
+// Import Services
+import {AuthenticationService} from './Services/authentication.service';
+
 // Import 3rd party components
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
@@ -94,8 +97,9 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
   ],
   providers: [{
     provide: LocationStrategy,
-    useClass: HashLocationStrategy
-  }],
+    useClass: HashLocationStrategy,
+  }, 
+    AuthenticationService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
