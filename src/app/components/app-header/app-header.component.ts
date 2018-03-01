@@ -6,10 +6,17 @@ import {Router} from '@angular/router';
   templateUrl: './app-header.component.html'
 })
 export class AppHeaderComponent {
+  logged = 'wei sun';
   constructor(
     private router: Router
-  ){}
-  jummToLogin(){
-    this.router.navigate(['login']);
+  ) {}
+
+
+  authenticateUser() {
+    if (this.logged) {
+      this.logged = '';
+    } else {
+      this.router.navigate(['login']);
+    }
   }
 }

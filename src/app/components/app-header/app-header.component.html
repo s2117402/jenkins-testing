@@ -6,8 +6,8 @@
   <button class="navbar-toggler d-md-down-none mr-auto" type="button" appSidebarToggler>
     <span class="navbar-toggler-icon"></span>
   </button>
-  <button class="btn btn-primary" (click)="jummToLogin()">
-    <i class="fa fa-user"></i>
+  <button class="btn btn-primary" (click)="authenticateUser()">
+    <i [ngClass] = "logged ? 'fa fa-user':''">{{logged?logged:'Log in'}}</i>
   </button>
   <button class="navbar-toggler d-md-down-none" type="button" appAsideMenuToggler>
     <span class="navbar-toggler-icon"></span>
