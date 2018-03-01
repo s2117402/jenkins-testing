@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
+import { MatSidenavModule, MatCheckboxModule, MatButtonModule, MatToolbarModule
+  , MatListModule, MatInputModule, MatIconModule
+} from '@angular/material';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 // Import containers
 import {
@@ -65,6 +69,7 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import {AngularFontAwesomeModule} from 'angular-font-awesome';
 
 @NgModule({
   imports: [
@@ -72,8 +77,15 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     AppRoutingModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
-    ChartsModule
-  ],
+    ChartsModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatListModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    NoopAnimationsModule,
+    AngularFontAwesomeModule
+    ],
   declarations: [
     AppComponent,
     ...APP_CONTAINERS,
