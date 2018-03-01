@@ -84,7 +84,6 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
     MatSidenavModule,
     MatToolbarModule,
     NoopAnimationsModule,
-    AngularFontAwesomeModule
     ],
   declarations: [
     AppComponent,
