@@ -8,17 +8,22 @@
   </button>
 
   <div class="btn-group">
+    <!--drop-down menu-->
     <button type="button" class="btn btn-primary"
             [ngClass]="logged?'dropdown-toggle':''" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false" (click)="jumpToLogin()">
       <i [ngClass] = "logged ? 'fa fa-user':''" >{{logged?logged:'Log in'}}</i>
     </button>
+    <!--css will change depend on if user is authenticated,and tell user to log in-->
 
     <div class="dropdown-menu" *ngIf="logged">
-      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Function1</a>
+      <a class="dropdown-item" href="#">Function2</a>
+      <!--we can put more functions here later-->
       <div class="dropdown-divider"></div>
       <a class="dropdown-item" (click)="logout()">Log Out</a>
     </div>
+    <!--log out the user-->
   </div>
 
   <button class="navbar-toggler d-md-down-none" type="button" appAsideMenuToggler>

@@ -14,11 +14,11 @@ export class AppHeaderComponent {
 
   logout() {
     this.logged = '';
-  }
+  } //Log out
 
   jumpToLogin() {
     if (!this.logged) {
       this.router.navigate(['login']);
     }
-  }
+  }//if user is not logged in,go to login page
 }
