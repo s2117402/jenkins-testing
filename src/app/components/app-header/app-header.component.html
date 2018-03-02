@@ -7,13 +7,27 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <button *ngIf="!logged" class="btn btn-outline-primary"
-   routerLink='/login'>Login</button>
-  <button *ngIf="logged" class="btn btn-outline-primary"
-   routerLink='#'>Username</button>
-  <!-- <button class="btn btn-primary" (click)="authenticateUser()">
-    <i [ngClass] = "logged ? 'fa fa-user':''">{{logged?logged:'Log in'}}</i>
-  </button> -->
+  <!--<button *ngIf="!logged" class="btn btn-outline-primary"-->
+   <!--routerLink='/login'>Login</button>-->
+  <!--<button *ngIf="logged" class="btn btn-outline-primary"-->
+   <!--routerLink='#'>Username</button>-->
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary"
+            [ngClass]="logged?'dropdown-toggle':''"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            (click)="authenticateUser()">
+      <i [ngClass] = "logged ? 'fa fa-user':''">{{logged?logged:'Log in'}}</i>
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Something else here</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" (click)="LogOut()">Log Out</a>
+    </div>
+  </div>
+
   <button class="navbar-toggler d-md-down-none" type="button" appAsideMenuToggler>
     <span class="navbar-toggler-icon"></span>
   </button>

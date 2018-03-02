@@ -7,8 +7,7 @@ import {AuthenticationService} from'../../Services/authentication.service';
   templateUrl: './app-header.component.html'
 })
 export class AppHeaderComponent {
- // logged = 'wei sun';
-  private logged = this.authenticationService.loggedIn; 
+  logged = 'wei sun';
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
@@ -16,10 +15,12 @@ export class AppHeaderComponent {
 
 
   authenticateUser() {
-    // if (this.logged) {
-    //   this.logged = '';
-    // } else {
-    //   this.router.navigate(['login']);
-    // }
+      if (!this.logged) {
+        this.router.navigate(['login']);
+     }
+  }
+
+  LogOut() {
+    this.logged = '';
   }
 }
