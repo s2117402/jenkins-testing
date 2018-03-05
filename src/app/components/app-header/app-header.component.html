@@ -12,7 +12,7 @@
     <button type="button" class="btn btn-primary"
             [ngClass]="logged?'dropdown-toggle':''" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false" (click)="jumpToLogin()">
-      <i [ngClass] = "logged ? 'fa fa-user':''" >{{logged?logged:'Log in'}}</i>
+      <i [ngClass] = "logged ? 'fa fa-user':''" >{{logged?' '+logged:' Log in'}}</i>
     </button>
     <!--css will change depend on if user is authenticated,and tell user to log in-->
 

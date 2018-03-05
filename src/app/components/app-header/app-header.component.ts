@@ -1,20 +1,36 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {JWTInLocalStorage} from '../../entities/JWTInLocalStorage';
+import {JwtService} from '../../services/jwt.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './app-header.component.html'
 })
-export class AppHeaderComponent {
-  logged = 'wei sun';
+export class AppHeaderComponent implements OnInit{
+  logged;
   constructor(
-    private router: Router
-  ) {}
+    private router: Router,
+    private jwtService: JwtService
+  ) {
 
+  }
+
+  ngOnInit() {
+    this.jwtService.displayUsername.subscribe(usernmae => {
+      this.logged = usernmae;
+      console.log('received!logged = '+this.logged)
+    })
+    //when user was authenticated, show his name on header
+    this.jwtService.checkIfJWTInLocalStorage();
+    //check if a valid user info was stored in localStorage, if true send the valid
+    //username out
+  }
 
   logout() {
     this.logged = '';
-  } //Log out
+    this.jwtService.removeJWTInLocalStorage();
+  } //Log OUt
 
   jumpToLogin() {
     if (!this.logged) {

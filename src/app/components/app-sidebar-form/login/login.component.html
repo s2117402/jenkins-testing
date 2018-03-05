@@ -4,10 +4,12 @@
         Please Login
       </div>
       <div class="card-body">
-        <form action="" method="post">
+        <form  [formGroup]="userGroup" >
           <div class="form-group">
             <div class="input-group">
-              <input type="text" id="username2" name="username2" class="form-control" placeholder="Username">
+              <input type="text" id="username2" name="username2"
+                     class="form-control" placeholder="Username"
+                      formControlName="username">
               <div class="input-group-append">
                 <span class="input-group-text"><i class="fa fa-user"></i></span>
               </div>
@@ -15,15 +17,25 @@
           </div>
           <div class="form-group">
             <div class="input-group">
-              <input type="password" id="password2" name="password2" class="form-control" placeholder="Password">
+              <input type="password" id="password2" name="password2"
+                     class="form-control" placeholder="Password"
+              formControlName="password">
               <div class="input-group-append">
                 <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
               </div>
             </div>
           </div>
+            <span style="color: red;display: block"
+                  *ngIf="userGroup.get('username').touched&&
+                  userGroup.get('username').errors?.required">
+            Username can't be empty!</span>
+            <span style="color: red;display: block"
+                  *ngIf="userGroup.get('password').touched &&
+                  userGroup.get('password').errors?.required">
+            Password can't be empty!</span>
           <div class="form-group form-actions">
-              <button type="submit" class="btn btn-sm btn-primary" id="loginBtn">
-                <i class="fa fa-user"></i> Login</button>
+              <button type="button" class="btn btn-sm btn-primary" (click)="login()" id="loginBtn">
+                <i class="fa fa-user" ></i> Login</button>
           </div>
         </form>
       </div>

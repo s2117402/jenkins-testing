@@ -70,6 +70,10 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
+import {AuthenticationService} from './services/authentication.service';
+import {JwtService} from './services/jwt.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -84,6 +88,9 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
     MatSidenavModule,
     MatToolbarModule,
     NoopAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
     ],
   declarations: [
     AppComponent,
@@ -94,8 +101,10 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
   ],
   providers: [{
     provide: LocationStrategy,
-    useClass: HashLocationStrategy
-  }],
+    useClass: HashLocationStrategy,
+  },
+  JwtService,
+  AuthenticationService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
