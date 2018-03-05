@@ -12,9 +12,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-
   userGroup: FormGroup;
+  wrongPassword = false;
   constructor(
     private formBuilder: FormBuilder,
     private authenticationService: AuthenticationService,
@@ -34,10 +33,13 @@ export class LoginComponent implements OnInit {
     const loginUser = new LoginUser(this.userGroup.get('username').value,
       this.userGroup.get('password').value);
     this.authenticationService.login(loginUser).subscribe(res  => {
-      console.log(res.status)
-      if(res.status === true) {
+      // console.log('equal? '+res.status == true)
+      if(res.status == true) {
+        console.log('this is true' + res.status)
         this.jwtService.storeJWTInLocalStorage(res.username, res.token);
         this.router.navigate(['']);
+      } else {
+        this.wrongPassword = true;
       }
     })
 
