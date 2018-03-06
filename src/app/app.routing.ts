@@ -7,6 +7,11 @@ import {
   SimpleLayoutComponent
 } from './containers';
 import { LoginComponent } from './components/app-sidebar-form/login/login.component';
+import {TimelineComponent} from './views/timeline/timeline.component';
+import {StatusComponent} from './views/status/status.component';
+import {CanActivateViaAuthGuardService} from './Services/can-activate-via-auth-guard.service';
+import {NopermitComponent} from './views/nopermit/nopermit.component';
+
 
 export const routes: Routes = [
   // {
@@ -28,6 +33,26 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: './views/dashboard/dashboard.module#DashboardModule'
+      },
+      {
+        path: 'projects',
+        loadChildren: './views/projects/projects.module#ProjectsModule',
+      },
+      {
+        path: 'calender',
+        loadChildren: './views/calender/calender.module#CalenderModule'
+      },
+      {
+        path: 'timeline',
+        loadChildren: './views/timeline/timeline.module#TimelineModule'
+      },{
+        path: 'status',
+        loadChildren: './views/status/status.module#StatusModule',
+        canActivate: [CanActivateViaAuthGuardService]
+      },
+      {
+        path: 'nopermit',
+        component: NopermitComponent
       }
     ]
   }

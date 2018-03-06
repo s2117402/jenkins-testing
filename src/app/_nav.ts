@@ -15,22 +15,22 @@ export const navigation = [
     children: [
       {
         name: 'Calendar',
-        url: '/',
+        url: '/calender',
         icon: 'icon-calendar'
       },
       {
         name: 'Projects',
-        url: '/',
+        url: '/projects',
         icon: 'icon-puzzle'
       },
       {
         name: 'Timeline',
-        url: '/',
+        url: '/timeline',
         icon: 'icon-clock'
       },
       {
-        name: 'Status',
-        url: '/',
+        name: 'Status(Admin Only)',
+        url: '/status',
         icon: 'icon-graph'
       },
     ]}

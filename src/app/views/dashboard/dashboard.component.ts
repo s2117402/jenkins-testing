@@ -8,12 +8,6 @@ import {AuthenticationService} from '../../Services/authentication.service';
 export class DashboardComponent {
 
   constructor(
-    private authenticationService: AuthenticationService
   ) { }
 
-  check() {
-    this.authenticationService.docheck().subscribe(res => {
-      console.log(res);
-    })
-  }
 }
