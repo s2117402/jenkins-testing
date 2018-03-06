@@ -10,27 +10,27 @@ export const navigation = [
   },
   {
     name: 'Schedule',
-    url: '',
+    url: '/schedule',
     icon: 'icon-star',
     children: [
       {
         name: 'Calendar',
-        url: '/',
+        url: '/calendar',
         icon: 'icon-calendar'
       },
       {
         name: 'Projects',
-        url: '/',
+        url: '/projects',
         icon: 'icon-puzzle'
       },
       {
         name: 'Timeline',
-        url: '/',
+        url: '/timeline',
         icon: 'icon-clock'
       },
       {
         name: 'Status',
-        url: '/',
+        url: '/status',
         icon: 'icon-graph'
       },
     ]}

@@ -3,9 +3,7 @@ import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
-import { MatSidenavModule, MatCheckboxModule, MatButtonModule, MatToolbarModule
-  , MatListModule, MatInputModule, MatIconModule
-} from '@angular/material';
+import { MatSidenavModule, MatCheckboxModule, MatButtonModule, MatToolbarModule, MatListModule, MatInputModule, MatIconModule} from '@angular/material';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 // Import containers
@@ -76,6 +74,7 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {JwtService} from './services/jwt.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+
 
 @NgModule({
   imports: [

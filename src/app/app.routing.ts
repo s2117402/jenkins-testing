@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
+import { AuthGuard } from './auth.guard';
 // Import Containers
 import {
   FullLayoutComponent,
@@ -28,7 +28,7 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: './views/dashboard/dashboard.module#DashboardModule'
-      }
+      },    
     ]
   }
 ];
