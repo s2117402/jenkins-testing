@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from'../../../Services/authentication.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {LoginUser} from '../../../entities/Request';
-import {JwtService} from '../../../services/jwt.service';
 import {JWTInLocalStorage} from '../../../entities/JWTInLocalStorage';
 import {Router} from '@angular/router';
+import {JsonWebTokenService} from '../../../Services/json-web-token.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authenticationService: AuthenticationService,
-    private jwtService: JwtService,
+    private jwtService: JsonWebTokenService,
     private router: Router
   ) {
     this.userGroup = formBuilder.group({
@@ -30,10 +30,10 @@ export class LoginComponent implements OnInit {
 
 
   login() {
+    this.wrongPassword = false;
     const loginUser = new LoginUser(this.userGroup.get('username').value,
       this.userGroup.get('password').value);
     this.authenticationService.login(loginUser).subscribe(res  => {
-      // console.log('equal? '+res.status == true)
       if(res.status == true) {
         console.log('this is true' + res.status)
         this.jwtService.storeJWTInLocalStorage(res.username, res.token);

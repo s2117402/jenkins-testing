@@ -73,9 +73,10 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
-import {JwtService} from './services/jwt.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {JwtinterceptorService} from './Services/jwtinterceptor.service';
+import {JsonWebTokenService} from './Services/json-web-token.service';
 
 @NgModule({
   imports: [
@@ -102,10 +103,14 @@ import {HttpClientModule} from '@angular/common/http';
     LoginComponent,
   ],
   providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: JwtinterceptorService,
+    multi: true
+  },{
     provide: LocationStrategy,
     useClass: HashLocationStrategy,
   },
-  JwtService,
+  JsonWebTokenService,
   AuthenticationService],
   bootstrap: [ AppComponent ]
 })
