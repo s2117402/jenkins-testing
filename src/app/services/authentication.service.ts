@@ -1,37 +1,32 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpInterceptor} from '@angular/common/http';
 import {LoginUser} from '../entities/Request';
-
-import { User } from '../models/user';
 
 import {Observable} from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
 import {Subject} from 'rxjs/Subject';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
+import {ResponseWithJWT} from '../entities/Response';
+import {HttpInterceptingHandler} from '@angular/common/http/src/module';
+import {HttpRequest, HttpHandler, HttpEvent} from '@angular/common/http';
+import {JsonWebTokenService} from './json-web-token.service';
 
 @Injectable()
 export class AuthenticationService {
   private  RootURL = 'https://attserver.herokuapp.com/';
-  userSubject: Subject<User> = new BehaviorSubject<User>(null);
+  userSubject: Subject<LoginUser> = new BehaviorSubject<LoginUser>(null);
 
   constructor(
     private http: HttpClient,
+    private jwtService: JsonWebTokenService
   ) { }
 
-  // login(user: LoginUser): Observable<any> {
-  //   return this.http.post(this.RootURL + 'login', user);
-  // }
-  login(user: User): Observable<{user: User}> {
-    return this.http.post<{user: User}>(`${this.RootURL}/login`, user)
-      .pipe(
-        map((res) => {
-          if (res) {
-            this.userSubject.next(res.user);
-          }
-          return res;
-        })
-      );
+  login(user: LoginUser): Observable<ResponseWithJWT> {
+    return this.http.post<ResponseWithJWT>(this.RootURL + 'login', user);
   }
 
+  docheck(): Observable<any> {
+    return this.http.post(this.RootURL+'check',{hello: 'test'});
+  }
 }

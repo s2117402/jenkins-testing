@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthenticationService} from'../../Services/authentication.service';
 import {JWTInLocalStorage} from '../../entities/JWTInLocalStorage';
-import {JwtService} from '../../services/jwt.service';
+import {JsonWebTokenService} from '../../Services/json-web-token.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +12,7 @@ export class AppHeaderComponent implements OnInit{
   logged;
   constructor(
     private router: Router,
-    private jwtService: JwtService
+    private jwtService: JsonWebTokenService
   ) {
   }
 

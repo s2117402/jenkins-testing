@@ -2,7 +2,8 @@ import {EventEmitter, Injectable} from '@angular/core';
 import {JWTInLocalStorage} from '../entities/JWTInLocalStorage';
 
 @Injectable()
-export class JwtService {
+export class JsonWebTokenService {
+
   displayUsername: EventEmitter<string> = new EventEmitter<string>();
   constructor() { }
 
@@ -28,4 +29,13 @@ export class JwtService {
   removeJWTInLocalStorage() {
     localStorage.removeItem('JWT');
   }
+
+  getJWTToken() {
+    if(this.checkIfJWTInLocalStorage()) {
+      return JSON.parse(localStorage.getItem('JWT')).token;
+    } else {
+      return false;
+    }
+  }
+
 }
