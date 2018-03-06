@@ -3,15 +3,11 @@ import {HttpClient, HttpInterceptor} from '@angular/common/http';
 import {LoginUser} from '../entities/Request';
 
 import {Observable} from 'rxjs/Observable';
-<<<<<<< HEAD
 import { map } from 'rxjs/operators';
 import {Subject} from 'rxjs/Subject';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
-import {ResponseWithJWT} from '../entities/Response';
-=======
 import {ResponseOfAuthenticatingJWT, ResponseWithJWT} from '../entities/Response';
->>>>>>> 5f77e5b04b8e854510a578881ca91e5fff6d6a99
 import {HttpInterceptingHandler} from '@angular/common/http/src/module';
 import {HttpRequest, HttpHandler, HttpEvent} from '@angular/common/http';
 import {JsonWebTokenService} from './json-web-token.service';

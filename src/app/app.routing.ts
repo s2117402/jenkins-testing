@@ -11,6 +11,7 @@ import {TimelineComponent} from './views/timeline/timeline.component';
 import {StatusComponent} from './views/status/status.component';
 import {CanActivateViaAuthGuardService} from './Services/can-activate-via-auth-guard.service';
 import {NopermitComponent} from './views/nopermit/nopermit.component';
+import {CalendarComponent} from './views/calendar/calendar.component';
 
 
 export const routes: Routes = [
@@ -39,8 +40,8 @@ export const routes: Routes = [
         loadChildren: './views/projects/projects.module#ProjectsModule',
       },
       {
-        path: 'calender',
-        loadChildren: './views/calender/calender.module#CalenderModule'
+        path: 'calendar',
+        loadChildren: './views/calendar/calendar.module#CalendarModule',
       },
       {
         path: 'timeline',
