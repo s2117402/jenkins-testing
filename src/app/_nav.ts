@@ -29,7 +29,7 @@ export const navigation = [
         icon: 'icon-clock'
       },
       {
-        name: 'Status',
+        name: 'Status(Admin Only)',
         url: '/status',
         icon: 'icon-graph'
       },

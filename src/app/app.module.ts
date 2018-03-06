@@ -76,6 +76,10 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {JwtinterceptorService} from './Services/jwtinterceptor.service';
 import {JsonWebTokenService} from './Services/json-web-token.service';
 
+import {StatusComponent} from './views/status/status.component';
+import {CanActivateViaAuthGuardService} from './Services/can-activate-via-auth-guard.service';
+import { NopermitComponent } from './views/nopermit/nopermit.component';
+
 
 @NgModule({
   imports: [
@@ -100,6 +104,7 @@ import {JsonWebTokenService} from './Services/json-web-token.service';
     ...APP_COMPONENTS,
     ...APP_DIRECTIVES,
     LoginComponent,
+    NopermitComponent
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
@@ -110,7 +115,8 @@ import {JsonWebTokenService} from './Services/json-web-token.service';
     useClass: HashLocationStrategy,
   },
   JsonWebTokenService,
-  AuthenticationService],
+  AuthenticationService,
+  CanActivateViaAuthGuardService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

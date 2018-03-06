@@ -5,7 +5,7 @@ export interface ResponseWithJWT {
 }
 
 
-export interface ResponseOfJWTCheck {
+export interface ResponseOfAuthenticatingJWT {
   status: string;
   role: string;
 }
