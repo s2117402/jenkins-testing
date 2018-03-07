@@ -18,13 +18,16 @@ export class JsonWebTokenService {
   }
 
   checkIfJWTInLocalStorage(): boolean {
-    if(localStorage.getItem('JWT')) {
+    //const jwtInLocalStorage = JSON.parse(localStorage.getItem('JWT'));
+    const jwtInLocalStorage = JSON.parse(localStorage.getItem('JWT'));
+    if(jwtInLocalStorage!=null && jwtInLocalStorage.username && jwtInLocalStorage.token) {
       this.setUsernameOnHeader(JSON.parse(localStorage.getItem('JWT')).username)
       return true;
     } else {
       return false
     };
   }
+
 
   removeJWTInLocalStorage() {
     localStorage.removeItem('JWT');

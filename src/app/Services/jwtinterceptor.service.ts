@@ -18,8 +18,10 @@ export class JwtinterceptorService implements HttpInterceptor{
       const authReq = req.clone({
         setHeaders: {Authorization: this.jwtService.getJWTToken()}
       });
+      console.log("authReq", authReq);
       return next.handle(authReq);
     } else {
+      console.log("Req", req);
       return next.handle(req);
     }
   }
