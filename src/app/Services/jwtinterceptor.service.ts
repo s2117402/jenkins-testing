@@ -11,9 +11,10 @@ export class JwtinterceptorService implements HttpInterceptor{
     private  jwtService: JsonWebTokenService,
     private authenticationService: AuthenticationService,
   ) { }
+
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     console.log('Intercept:', req.body);
-    // if(req.username != this.authenticationService.logUserName)
+    // Add token in request header
     if(this.jwtService.checkIfJWTInLocalStorage() && req.headers.get('Authorization') == null) {
       const authReq = req.clone({
         setHeaders: {Authorization: this.jwtService.getJWTToken()}

@@ -13,12 +13,10 @@ export class JsonWebTokenService {
 
 
   storeJWTInLocalStorage(usernmae: string, token: string) {
-    localStorage.setItem('JWT',JSON.stringify(new JWTInLocalStorage(
-      usernmae, token)));
+    localStorage.setItem('JWT',JSON.stringify(new JWTInLocalStorage(usernmae, token)));
   }
 
   checkIfJWTInLocalStorage(): boolean {
-    //const jwtInLocalStorage = JSON.parse(localStorage.getItem('JWT'));
     const jwtInLocalStorage = JSON.parse(localStorage.getItem('JWT'));
     if(jwtInLocalStorage!=null && jwtInLocalStorage.username && jwtInLocalStorage.token) {
       this.setUsernameOnHeader(JSON.parse(localStorage.getItem('JWT')).username)

@@ -28,6 +28,6 @@ export class AuthenticationService {
 
   docheck(): Observable<any> {
     return this.http.post<ResponseOfAuthenticatingJWT>
-      (`${this.RootURL}check`, {request: 'authenticating JWT', username: this.logUserName});
+      (`${this.RootURL}check`, {request: 'authenticating JWT'});
   }
 }

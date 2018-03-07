@@ -18,11 +18,14 @@ export class CanActivateViaAuthGuardService implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     return this.authenticationService.docheck().pipe(map(res => {
       console.log('canActivate res,', res);
+      /* if the username is changed, automatically logout, incase of using others token to access*/
       if(res.username != this.authenticationService.logUserName) {
         this.authenticationService.logUserName = '';
         this.jwtService.removeJWTInLocalStorage();
+        alert("Username changed. Log out automatically. Please login.")
         this.router.navigate(['login']);
       }
+      /* Verify the role of the user, wether is admin(for specific protected routes)*/ 
       else if(res.status === 'success' && res.role === 'admin' && res.username === this.authenticationService.logUserName) { //check if having the permit
         console.log('res true role = '+ res.role);
         return true;
