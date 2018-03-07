@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(loginUser).subscribe(res  => {
       if(res.status == true) {
         console.log('this is true' + res.status)
-        this.jwtService.storeJWTInLocalStorage(res.username, res.token);
+        this.jwtService.storeJWTInLocalStorage(res['username'], res['token']);
         this.router.navigate(['']);
       } else {
         this.wrongPassword = true;
