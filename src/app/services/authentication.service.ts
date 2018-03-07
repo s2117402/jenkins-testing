@@ -14,20 +14,20 @@ import {JsonWebTokenService} from './json-web-token.service';
 
 @Injectable()
 export class AuthenticationService {
-  private  RootURL = 'https://attserver.herokuapp.com/';
-  userSubject: Subject<LoginUser> = new BehaviorSubject<LoginUser>(null);
-
+  //private  RootURL = 'https://attserver.herokuapp.com/';
+  private RootURL = 'http://localhost:3000/';
+  logUserName;
   constructor(
     private http: HttpClient,
     private jwtService: JsonWebTokenService
   ) { }
 
   login(user: LoginUser): Observable<ResponseWithJWT> {
-    return this.http.post<ResponseWithJWT>(this.RootURL + 'login', user);
+    return this.http.post<ResponseWithJWT>(`${this.RootURL}login`, user);
   }
 
   docheck(): Observable<any> {
     return this.http.post<ResponseOfAuthenticatingJWT>
-      (this.RootURL+'check',{request: 'authenticating JWT'});
+      (`${this.RootURL}check`, {request: 'authenticating JWT', username: this.logUserName});
   }
 }

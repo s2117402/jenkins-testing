@@ -12,14 +12,16 @@ export class AppHeaderComponent implements OnInit{
   logged;
   constructor(
     private router: Router,
-    private jwtService: JsonWebTokenService
+    private jwtService: JsonWebTokenService,
+    private authenticationService: AuthenticationService
   ) {
   }
 
   ngOnInit() {
-    this.jwtService.displayUsername.subscribe(usernmae => {
-      this.logged = usernmae;
-      console.log('received!logged = '+this.logged)
+    this.jwtService.displayUsername.subscribe(username => {
+      this.logged = username;
+      this.authenticationService.logUserName = username;
+      console.log('logged User is= '+this.logged)
     })
     //when user was authenticated, show his name on header
     this.jwtService.checkIfJWTInLocalStorage();
@@ -30,6 +32,7 @@ export class AppHeaderComponent implements OnInit{
 
   logout() {
     this.logged = '';
+    this.authenticationService.logUserName = '';
     this.jwtService.removeJWTInLocalStorage();
   } //Log OUt
 

@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
   login() {
     const loginUser = new LoginUser(this.userGroup.get('username').value,
       this.userGroup.get('password').value);
+      console.log('login', loginUser);
     this.authenticationService.login(loginUser).subscribe(res  => {
       if(res.status == true) {
         console.log('this is true' + res.status)
