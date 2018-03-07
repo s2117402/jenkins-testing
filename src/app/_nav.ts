@@ -10,12 +10,12 @@ export const navigation = [
   },
   {
     name: 'Schedule',
-    url: '',
+    url: '/schedule',
     icon: 'icon-star',
     children: [
       {
         name: 'Calendar',
-        url: '/calender',
+        url: '/calendar',
         icon: 'icon-calendar'
       },
       {

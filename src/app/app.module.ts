@@ -3,9 +3,7 @@ import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
-import { MatSidenavModule, MatCheckboxModule, MatButtonModule, MatToolbarModule
-  , MatListModule, MatInputModule, MatIconModule
-} from '@angular/material';
+import { MatSidenavModule, MatCheckboxModule, MatButtonModule, MatToolbarModule, MatListModule, MatInputModule, MatIconModule} from '@angular/material';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 // Import containers

@@ -21,16 +21,14 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) {
     this.userGroup = formBuilder.group({
-      username: ['',[Validators.required]],
-      password: ['',[Validators.required]]
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]]
     });
   }
   ngOnInit() {
   }
 
-
   login() {
-    this.wrongPassword = false;
     const loginUser = new LoginUser(this.userGroup.get('username').value,
       this.userGroup.get('password').value);
     this.authenticationService.login(loginUser).subscribe(res  => {

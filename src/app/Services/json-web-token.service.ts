@@ -14,7 +14,7 @@ export class JsonWebTokenService {
 
   storeJWTInLocalStorage(usernmae: string, token: string) {
     localStorage.setItem('JWT',JSON.stringify(new JWTInLocalStorage(
-      usernmae,token)));
+      usernmae, token)));
   }
 
   checkIfJWTInLocalStorage(): boolean {
