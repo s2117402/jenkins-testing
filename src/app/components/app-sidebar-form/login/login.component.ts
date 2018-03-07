@@ -31,7 +31,9 @@ export class LoginComponent implements OnInit {
   login() {
     const loginUser = new LoginUser(this.userGroup.get('username').value,
       this.userGroup.get('password').value);
+      console.log("loginuser", loginUser);
     this.authenticationService.login(loginUser).subscribe(res  => {
+       console.log('res', res);
       if(res.status == true) {
         console.log('this is true' + res.status)
         this.jwtService.storeJWTInLocalStorage(res['username'], res['token']);
