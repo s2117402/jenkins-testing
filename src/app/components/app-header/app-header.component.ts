@@ -26,7 +26,13 @@ export class AppHeaderComponent implements OnInit{
       console.log('logged User is= '+this.logged)
     })
     //when user was authenticated, show his name on header
-    this.jwtService.checkIfJWTInLocalStorage();
+    // this.jwtService.checkIfJWTInLocalStorage();
+    if(this.jwtService.checkIfJWTInLocalStorage()) {
+      this.authenticationService.docheck().subscribe(res => {
+      this.logged = res.username;
+      this.jwtService.setUsernameOnHeader(res.username);
+      });
+    }
     //check if a valid user info was stored in localStorage, if true send the valid username out
   }
 

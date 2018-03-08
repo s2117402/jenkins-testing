@@ -1,6 +1,8 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {JWTInLocalStorage} from '../entities/JWTInLocalStorage';
-import {UserInfoService } from './user-info.service'
+import {UserInfoService } from './user-info.service';
+import {HttpClient} from '@angular/common/http';
+import {ResponseOfAuthenticatingJWT, ResponseWithJWT} from '../entities/Response';
 
 @Injectable()
 export class JsonWebTokenService {
@@ -8,6 +10,7 @@ export class JsonWebTokenService {
   displayUsername: EventEmitter<string> = new EventEmitter<string>();
   constructor(
     private userInfoService: UserInfoService,
+    private http: HttpClient,
   ) { }
 
   setUsernameOnHeader(username: string) {
@@ -22,7 +25,7 @@ export class JsonWebTokenService {
   checkIfJWTInLocalStorage(): boolean {
     const jwtInLocalStorage = JSON.parse(localStorage.getItem('JWT'));
     if(jwtInLocalStorage!=null && jwtInLocalStorage.token) {
-      this.setUsernameOnHeader(this.userInfoService.logUserName);
+      // this.setUsernameOnHeader(this.userInfoService.logUserName);
       return true;
     } else {
       return false
