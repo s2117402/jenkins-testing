@@ -25,7 +25,6 @@ export class JsonWebTokenService {
   checkIfJWTInLocalStorage(): boolean {
     const jwtInLocalStorage = JSON.parse(localStorage.getItem('JWT'));
     if(jwtInLocalStorage!=null && jwtInLocalStorage.token) {
-      // this.setUsernameOnHeader(this.userInfoService.logUserName);
       return true;
     } else {
       return false
