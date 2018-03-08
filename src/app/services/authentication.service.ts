@@ -12,8 +12,7 @@ import {JsonWebTokenService} from './json-web-token.service';
 import {UrlServiceService} from './url-service.service';
 @Injectable()
 export class AuthenticationService {
-  
-  RootURL = this.urlServiceService.RootURL;
+
   constructor(
     private http: HttpClient,
     private jwtService: JsonWebTokenService,
@@ -21,12 +20,12 @@ export class AuthenticationService {
   ) { }
 
   login(user: LoginUser): Observable<ResponseWithJWT> {
-    return this.http.post<ResponseWithJWT>(`${this.RootURL}login`, user);
+    return this.http.post<ResponseWithJWT>(this.urlServiceService.getLoginURL(), user);
   }
 
   docheck(): Observable<any> {
     return this.http.get<ResponseOfAuthenticatingJWT>
-      (`${this.RootURL}check`);
+      (this.urlServiceService.getCheckURL());
   }
 }
 
