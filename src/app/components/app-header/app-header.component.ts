@@ -39,7 +39,6 @@ export class AppHeaderComponent implements OnInit{
 
   logout() {
     this.logged = '';
-    this.authenticationService.logUserName = '';
     this.jwtService.removeJWTInLocalStorage();
   } //Log Out
 

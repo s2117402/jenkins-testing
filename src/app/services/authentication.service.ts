@@ -14,7 +14,6 @@ import {JsonWebTokenService} from './json-web-token.service';
 export class AuthenticationService {
   //private  RootURL = 'https://attserver.herokuapp.com/';
   private RootURL = 'http://localhost:3000/';
-  logUserName;
   constructor(
     private http: HttpClient,
     private jwtService: JsonWebTokenService
