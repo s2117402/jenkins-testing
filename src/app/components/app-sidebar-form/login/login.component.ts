@@ -32,11 +32,14 @@ export class LoginComponent implements OnInit {
     const loginUser = new LoginUser(this.userGroup.get('username').value,
       this.userGroup.get('password').value);
       console.log('login', loginUser);
+     
     this.authenticationService.login(loginUser).subscribe(res  => {
        console.log('res', res);
       if(res.status == true) {
-        console.log('this is true' + res.status)
-        this.jwtService.storeJWTInLocalStorage(res['username'], res['token']);
+        console.log('this is true' + res.status);
+        this.authenticationService.logUserName = loginUser.username;
+        this.jwtService.setUsernameOnHeader(loginUser.username);
+        this.jwtService.storeJWTInLocalStorage(res['token']);
         this.router.navigate(['']);
       } else {
         this.wrongPassword = true;

@@ -1,25 +1,25 @@
 export class LoginUser {
-  private _username: String;
-  private _password: String;
+  private _username: string;
+  private _password: string;
 
-  constructor(username: String, password: String) {
+  constructor(username: string, password: string) {
     this._username = username;
     this._password = password;
   }
 
-  get username(): String {
+  get username(): string {
     return this._username;
   }
 
-  set username(value: String) {
+  set username(value: string) {
     this._username = value;
   }
 
-  get password(): String {
+  get password(): string {
     return this._password;
   }
 
-  set password(value: String) {
+  set password(value: string) {
     this._password = value;
   }
 }

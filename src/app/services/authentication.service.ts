@@ -4,8 +4,6 @@ import {LoginUser} from '../entities/Request';
 
 import {Observable} from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
-import {Subject} from 'rxjs/Subject';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 import {ResponseOfAuthenticatingJWT, ResponseWithJWT} from '../entities/Response';
 import {HttpInterceptingHandler} from '@angular/common/http/src/module';

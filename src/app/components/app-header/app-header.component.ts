@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {AuthenticationService} from'../../Services/authentication.service';
 import {JWTInLocalStorage} from '../../entities/JWTInLocalStorage';
 import {JsonWebTokenService} from '../../Services/json-web-token.service';
+import {UserInfoService} from '../../Services/user-info.service';
 
 @Component({
   selector: 'app-header',
@@ -13,20 +14,20 @@ export class AppHeaderComponent implements OnInit{
   constructor(
     private router: Router,
     private jwtService: JsonWebTokenService,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private userInfoService: UserInfoService,
   ) {
   }
 
   ngOnInit() {
     this.jwtService.displayUsername.subscribe(username => {
       this.logged = username;
-      this.authenticationService.logUserName = username;
+      this.userInfoService.logUserName = username;
       console.log('logged User is= '+this.logged)
     })
     //when user was authenticated, show his name on header
     this.jwtService.checkIfJWTInLocalStorage();
-    //check if a valid user info was stored in localStorage, if true send the valid
-    //username out
+    //check if a valid user info was stored in localStorage, if true send the valid username out
   }
 
 
