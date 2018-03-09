@@ -8,7 +8,7 @@ import {
 import { LoginComponent } from './components/app-sidebar-form/login/login.component';
 import {TimelineComponent} from './views/timeline/timeline.component';
 import {StatusComponent} from './views/status/status.component';
-import {CanActivateViaAuthGuardService} from './Services/can-activate-via-auth-guard.service';
+import {CanActivateViaAuthGuardService} from './services/can-activate-via-auth-guard.service';
 import {NopermitComponent} from './views/nopermit/nopermit.component';
 import {CalendarComponent} from './views/calendar/calendar.component';
 

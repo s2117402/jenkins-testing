@@ -63,8 +63,8 @@ const APP_DIRECTIVES = [
 // Import routing module
 import { AppRoutingModule } from './app.routing';
 
-// Import Services
-import {AuthenticationService} from './Services/authentication.service';
+// Import services
+import {AuthenticationService} from './services/authentication.service';
 
 // Import 3rd party components
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -73,13 +73,13 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {JwtinterceptorService} from './Services/jwtinterceptor.service';
-import {JsonWebTokenService} from './Services/json-web-token.service';
-import {UserInfoService} from './Services/user-info.service';
-import {UrlServiceService} from './Services/url-service.service';
+import {JwtinterceptorService} from './services/jwtinterceptor.service';
+import {JsonWebTokenService} from './services/json-web-token.service';
+import {UserInfoService} from './services/user-info.service';
+import {UrlServiceService} from './services/url-service.service';
 
 import {StatusComponent} from './views/status/status.component';
-import {CanActivateViaAuthGuardService} from './Services/can-activate-via-auth-guard.service';
+import {CanActivateViaAuthGuardService} from './services/can-activate-via-auth-guard.service';
 import { NopermitComponent } from './views/nopermit/nopermit.component';
 
 

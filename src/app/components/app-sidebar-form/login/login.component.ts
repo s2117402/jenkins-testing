@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from'../../../Services/authentication.service';
+import {AuthenticationService} from '../../../services/authentication.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {LoginUser} from '../../../entities/Request';
 import {JWTInLocalStorage} from '../../../entities/JWTInLocalStorage';
 import {Router} from '@angular/router';
-import {JsonWebTokenService} from '../../../Services/json-web-token.service';
+import {JsonWebTokenService} from '../../../services/json-web-token.service';
 
 @Component({
   selector: 'app-login',

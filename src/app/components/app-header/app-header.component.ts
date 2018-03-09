@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {AuthenticationService} from'../../Services/authentication.service';
+import {AuthenticationService} from '../../services/authentication.service';
 import {JWTInLocalStorage} from '../../entities/JWTInLocalStorage';
-import {JsonWebTokenService} from '../../Services/json-web-token.service';
-import {UserInfoService} from '../../Services/user-info.service';
+import {JsonWebTokenService} from '../../services/json-web-token.service';
+import {UserInfoService} from '../../services/user-info.service';
 
 @Component({
   selector: 'app-header',
