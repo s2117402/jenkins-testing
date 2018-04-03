@@ -14,14 +14,14 @@ import {CalendarComponent} from './views/calendar/calendar.component';
 
 
 export const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: 'dashboard',
-  //   pathMatch: 'full',
-  // },
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full',
   },
   {
     path: '',
@@ -30,6 +30,10 @@ export const routes: Routes = [
       title: 'Home'
     },
     children: [
+      {
+        path: 'AIC',
+        loadChildren: './views/AIC/AIC.module#AICModule'
+      },
       {
         path: 'dashboard',
         loadChildren: './views/dashboard/dashboard.module#DashboardModule'

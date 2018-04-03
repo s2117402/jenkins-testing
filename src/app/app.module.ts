@@ -82,7 +82,6 @@ import {StatusComponent} from './views/status/status.component';
 import {CanActivateViaAuthGuardService} from './services/can-activate-via-auth-guard.service';
 import { NopermitComponent } from './views/nopermit/nopermit.component';
 
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -106,7 +105,7 @@ import { NopermitComponent } from './views/nopermit/nopermit.component';
     ...APP_COMPONENTS,
     ...APP_DIRECTIVES,
     LoginComponent,
-    NopermitComponent
+    NopermitComponent,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
