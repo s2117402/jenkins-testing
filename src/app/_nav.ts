@@ -9,6 +9,23 @@ export const navigation = [
     name: 'Main Menu'
   },
   {
+    name: 'AIC',
+    url: '/AIC',
+    children:[
+      {
+        name: 'Zones',
+        url: '/AIC/zones'
+      },
+      {
+        name: 'Tenants',
+        url: '/AIC/tenants'
+      },{
+        name: 'Users',
+        url: '/AIC/users'
+      }
+    ]
+  },
+  {
     name: 'Schedule',
     url: '/schedule',
     icon: 'icon-star',

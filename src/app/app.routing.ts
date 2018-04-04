@@ -5,23 +5,27 @@ import {
   FullLayoutComponent,
   SimpleLayoutComponent
 } from './containers';
+
+// Services
+import {CanActivateViaAuthGuardService} from './services/can-activate-via-auth-guard.service';
+
+// Components
 import { LoginComponent } from './components/app-sidebar-form/login/login.component';
 import {TimelineComponent} from './views/timeline/timeline.component';
 import {StatusComponent} from './views/status/status.component';
-import {CanActivateViaAuthGuardService} from './services/can-activate-via-auth-guard.service';
 import {NopermitComponent} from './views/nopermit/nopermit.component';
 import {CalendarComponent} from './views/calendar/calendar.component';
 
 
 export const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: 'dashboard',
-  //   pathMatch: 'full',
-  // },
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full',
   },
   {
     path: '',
@@ -30,6 +34,10 @@ export const routes: Routes = [
       title: 'Home'
     },
     children: [
+      {
+        path: 'AIC',
+        loadChildren: './views/AIC/AIC.module#AICModule'
+      },
       {
         path: 'dashboard',
         loadChildren: './views/dashboard/dashboard.module#DashboardModule'

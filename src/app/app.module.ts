@@ -83,7 +83,6 @@ import {CanActivateViaAuthGuardService} from './services/can-activate-via-auth-g
 import { NopermitComponent } from './views/nopermit/nopermit.component';
 import {RequestDataService} from './services/request-data.service';
 
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -107,7 +106,7 @@ import {RequestDataService} from './services/request-data.service';
     ...APP_COMPONENTS,
     ...APP_DIRECTIVES,
     LoginComponent,
-    NopermitComponent
+    NopermitComponent,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
