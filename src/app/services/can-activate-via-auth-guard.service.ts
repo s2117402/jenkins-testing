@@ -32,7 +32,7 @@ export class CanActivateViaAuthGuardService implements CanActivate {
         }
       },(err) => {
         if(err.status === 401) { /**invalid**/
-        alert('User information changed or expired.Please login.')
+        alert('Please login to access this page.')
           this.router.navigate(['login'])
           resolve(false);
         }

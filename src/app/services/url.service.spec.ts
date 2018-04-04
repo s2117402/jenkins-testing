@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { UrlServiceService } from './url-service.service';
+import { UrlServiceService } from './url.service';
 
 describe('UrlServiceService', () => {
   beforeEach(() => {

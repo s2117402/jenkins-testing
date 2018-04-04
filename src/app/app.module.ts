@@ -76,11 +76,12 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {JwtinterceptorService} from './services/jwtinterceptor.service';
 import {JsonWebTokenService} from './services/json-web-token.service';
 import {UserInfoService} from './services/user-info.service';
-import {UrlServiceService} from './services/url-service.service';
+import {UrlService} from './services/url.service';
 
 import {StatusComponent} from './views/status/status.component';
 import {CanActivateViaAuthGuardService} from './services/can-activate-via-auth-guard.service';
 import { NopermitComponent } from './views/nopermit/nopermit.component';
+import {RequestDataService} from './services/request-data.service';
 
 
 @NgModule({
@@ -120,7 +121,8 @@ import { NopermitComponent } from './views/nopermit/nopermit.component';
   AuthenticationService,
   CanActivateViaAuthGuardService,
   UserInfoService,
-  UrlServiceService,
+  UrlService,
+  RequestDataService
 ],
   bootstrap: [ AppComponent ]
 })

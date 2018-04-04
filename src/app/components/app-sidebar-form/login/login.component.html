@@ -4,8 +4,8 @@
         Please Login
       </div>
       <div class="card-body">
-        <form  [formGroup]="userGroup" (submit)="userGroup.get('password').errors?.required &&
-         userGroup.get('username').errors?.required && login()">
+        <form  [formGroup]="userGroup" (submit)="!userGroup.get('password').errors?.required &&
+         !userGroup.get('username').errors?.required && login()">
           <div class="form-group">
             <div class="input-group">
               <input type="text" id="username2" name="username2"
@@ -38,7 +38,7 @@
           <span style="color: red;display: block"
                 *ngIf="wrongPassword">Wrong Password!</span>
           <div class="form-group form-actions">
-              <button type="button" class="btn btn-sm btn-primary" (click)="login()" id="loginBtn">
+              <button type="submit" class="btn btn-sm btn-primary"  id="loginBtn">
                 <i class="fa fa-user" ></i> Login</button>
           </div>
         </form>

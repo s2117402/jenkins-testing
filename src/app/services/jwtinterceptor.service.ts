@@ -13,17 +13,14 @@ export class JwtinterceptorService implements HttpInterceptor{
   ) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log('Intercept:', req.body);
-    // Add token in request header
+    /** Add token in request header**/
     if(this.jwtService.checkIfJWTInLocalStorage() && req.headers.get('Authorization') == null) {
       const authReq = req.clone({
-        setHeaders: {Authorization: this.jwtService.getJWTToken()}
+        setHeaders: {Authorization: this.jwtService.getJWTToken()}  /**get the JWT token from LocalStorage**/
       });
-      console.log("authReq", authReq);
-      return next.handle(authReq);
+      return next.handle(authReq);    /**If find the token in token, insert it to request header**/
     } else {
-      console.log("Req", req);
-      return next.handle(req);
+      return next.handle(req);       /**If not, send the request out directly**/
     }
   }
 
